@@ -7,12 +7,3 @@ BUILD_AT="/home/ec2-user/app_build"
 PRODUCTION_HOSTS="13.115.209.106"
 PRODUCTION_USER="ec2-user"
 DELIVER_TO="/home/ec2-user/app_release"
-
-<!-- pre_erlang_get_and_update_deps() {
-  local _prod_secret_path="/home/ec2-user/phoenix_crawler/prod.secret.exs"
-  if [ "$TARGET_MIX_ENV" = "prod" ]; then
-    __sync_remote "
-      ln -sfn '$_prod_secret_path' '$BUILD_AT/config/prod.secret.exs'
-    "
-  fi
-} -->
