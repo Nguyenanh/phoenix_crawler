@@ -1,4 +1,5 @@
-APP="phoenix_crawler"
+APP="phoenix_crawler_app"
+
 BUILD_HOST="13.115.209.106"
 BUILD_USER="ec2-user"
 BUILD_AT="/home/ec2-user/app_build"
