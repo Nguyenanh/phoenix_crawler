@@ -11,20 +11,18 @@ use Mix.Config
 # before starting your production server.
 config :phoenix_crawler, PhoenixCrawlerWeb.Endpoint,
   http: [port: System.get_env("PORT") || 4000],
-  url: [scheme: "http", host: "13.115.209.106", port: 80],
-  force_ssl: [rewrite_on: [:x_forwarded_proto]],
+  url: [host: "13.115.209.106", port: 80],
   cache_static_manifest: "priv/static/cache_manifest.json",
   secret_key_base: "HPDgnupWT6vxG7fLEYqrjzPHX0nIVKp/yBYt21eR9TsqZxtzzeXRsncphPuoRMf8",
+
+# Do not print debug messages in production
+config :logger, level: :info
 
 # Configure your database
 config :phoenix_crawler, PhoenixCrawler.Repo,
   adapter: Ecto.Adapters.Postgres,
   url: "postgres://qzewlihqxvxnca:489a72d69e04d4d62fb97aa4485aa20db55cbbc36930ce084c2b11669050717b@ec2-184-73-210-189.compute-1.amazonaws.com:5432/dguahbvtbkcsj",
-  pool_size: String.to_integer(10)
-
-# Do not print debug messages in production
-config :logger, level: :info
-
+  pool_size: String.to_integer("10")
 # ## SSL Support
 #
 # To get SSL working, you will need to add the `https` key
