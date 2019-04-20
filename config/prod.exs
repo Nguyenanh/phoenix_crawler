@@ -16,7 +16,13 @@ config :phoenix_crawler, PhoenixCrawlerWeb.Endpoint,
   secret_key_base: "HPDgnupWT6vxG7fLEYqrjzPHX0nIVKp/yBYt21eR9TsqZxtzzeXRsncphPuoRMf8"
 
 # Do not print debug messages in production
-config :logger, level: :info
+config :logger,
+  format: "[$level] $message\n",
+  backends: [{LoggerFileBackend, :info}]
+
+config :logger, :info,
+  path: "log/production.log",
+  level: :info
 
 # Configure your database
 config :phoenix_crawler, PhoenixCrawler.Repo,

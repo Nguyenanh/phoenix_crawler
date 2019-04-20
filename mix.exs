@@ -44,7 +44,8 @@ defmodule PhoenixCrawler.MixProject do
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
       {:edeliver, "~> 1.4.3"},
-      {:distillery, "~> 1.4"}
+      {:distillery, "~> 1.4"},
+      {:logger_file_backend, "~> 0.0.10"}
     ]
   end
 

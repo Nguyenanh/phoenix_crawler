@@ -57,7 +57,13 @@ config :phoenix_crawler, PhoenixCrawlerWeb.Endpoint,
   ]
 
 # Do not include metadata nor timestamps in development logs
-config :logger, :console, format: "[$level] $message\n"
+config :logger,
+  format: "[$level] $message\n",
+  backends: [{LoggerFileBackend, :info}]
+
+config :logger, :info,
+  path: "log/devlopment.log",
+  level: :info
 
 # Set a higher stacktrace during development. Avoid configuring such
 # in production as building large stacktraces may be expensive.
