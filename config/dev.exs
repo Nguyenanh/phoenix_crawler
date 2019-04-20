@@ -62,7 +62,7 @@ config :logger,
   backends: [{LoggerFileBackend, :info}]
 
 config :logger, :info,
-  path: "log/devlopment.log",
+  path: "log/dev.log",
   level: :info
 
 # Set a higher stacktrace during development. Avoid configuring such

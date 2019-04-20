@@ -21,7 +21,7 @@ config :logger,
   backends: [{LoggerFileBackend, :info}]
 
 config :logger, :info,
-  path: "log/production.log",
+  path: "log/prod.log",
   level: :info
 
 # Configure your database
