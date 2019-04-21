@@ -24,4 +24,12 @@ pre_erlang_clean_compile() {
       cd '$BUILD_AT/assets'
       npm run deploy $SILENCE
    "
+
+   status "Running phx.digest"
+   __sync_remote "
+     set -e
+
+     cd '$BUILD_AT'
+     APP='$APP' MIX_ENV='$TARGET_MIX_ENV' $MIX_CMD phx.digest $SILENCE
+   "
 }
