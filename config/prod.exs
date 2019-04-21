@@ -28,7 +28,8 @@ config :logger, :info,
 config :phoenix_crawler, PhoenixCrawler.Repo,
   adapter: Ecto.Adapters.Postgres,
   url: "postgres://qzewlihqxvxnca:489a72d69e04d4d62fb97aa4485aa20db55cbbc36930ce084c2b11669050717b@ec2-184-73-210-189.compute-1.amazonaws.com:5432/dguahbvtbkcsj",
-  pool_size: String.to_integer("10")
+  pool_size: String.to_integer("10"),
+  ssl: true
 # ## SSL Support
 #
 # To get SSL working, you will need to add the `https` key
