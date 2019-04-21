@@ -11,6 +11,7 @@ DELIVER_TO="/home/ec2-user/app_release"
 pre_erlang_clean_compile() {
   status "Installing NPM dependencies"
   __sync_remote "
+    set -e
     cd '$BUILD_AT/assets'
     npm install $SILENCE
   "
