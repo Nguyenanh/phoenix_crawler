@@ -8,22 +8,15 @@ PRODUCTION_HOSTS="13.115.209.106"
 PRODUCTION_USER="ec2-user"
 DELIVER_TO="/home/ec2-user/app_release"
 
-GIT_CLEAN_PATHS="_build rel priv/static"
-
 pre_erlang_clean_compile() {
-  status "Running phoenix.digest"
-  __sync_remote " # runs the commands on the build host
-    source ~/.bashrc
-    # echo \$PATH # check if rbenv is in the path
-    set -e # fail if any command fails (recommended)
-    cd '$BUILD_AT' # enter the build directory on the build host (required)
-    # prepare something
-    mkdir -p priv/static # required by the phoenix.digest task
+  status "Prparing assets with: brunch build and phoenix.digest"
+  __sync_remote "
+    # Runs the commands on the build host
+    set -e
+    cd '$BUILD_AT'
+    mkdir -p priv/static
     npm install
-
-    ./node_modules/brunch/bin/brunch build --production
-
-    # run your custom task
-    APP='$APP' MIX_ENV='$TARGET_MIX_ENV' $MIX_CMD phoenix.digest $SILENCE
+    node_modules/.bin/brunch build --production
+    app='$APP' MIX_ENV='$TARGET_MIX_ENV' $MIX_CMD phoenix.digest $SILENCE
   "
 }
