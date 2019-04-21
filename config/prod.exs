@@ -15,7 +15,7 @@ config :phoenix_crawler, PhoenixCrawlerWeb.Endpoint,
   cache_static_manifest: "priv/static/cache_manifest.json",
   server: true,
   code_reloader: false
-  
+
 config :phoenix_crawler, PhoenixCrawlerWeb.Endpoint,
   secret_key_base: "HPDgnupWT6vxG7fLEYqrjzPHX0nIVKp/yBYt21eR9TsqZxtzzeXRsncphPuoRMf8"
 

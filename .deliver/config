@@ -16,7 +16,7 @@ pre_erlang_clean_compile() {
     cd '$BUILD_AT'
     mkdir -p priv/static
     npm install
-    node_modules/.bin/brunch build --production
+    node_modules/.bin/webpack build --production
     app='$APP' MIX_ENV='$TARGET_MIX_ENV' $MIX_CMD phoenix.digest $SILENCE
   "
 }
