@@ -9,14 +9,9 @@ PRODUCTION_USER="ec2-user"
 DELIVER_TO="/home/ec2-user/app_release"
 
 pre_erlang_clean_compile() {
-  status "Prparing assets with: brunch build and phoenix.digest"
+  status "Installing NPM dependencies"
   __sync_remote "
-    # Runs the commands on the build host
-    set -e
-    cd '$BUILD_AT'
-    mkdir -p priv/static
-    npm install
-    node_modules/.bin/webpack build --production
-    app='$APP' MIX_ENV='$TARGET_MIX_ENV' $MIX_CMD phoenix.digest $SILENCE
+    cd '$BUILD_AT/assets'
+    npm install $SILENCE
   "
 }
