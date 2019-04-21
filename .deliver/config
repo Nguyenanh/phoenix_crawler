@@ -15,4 +15,13 @@ pre_erlang_clean_compile() {
     cd '$BUILD_AT/assets'
     npm install $SILENCE
   "
+
+  status "Building static files"
+  __sync_remote "
+      set -e
+      cd '$BUILD_AT'
+      mkdir -p priv/static
+      cd '$BUILD_AT/assets'
+      npm run deploy $SILENCE
+   "
 }
