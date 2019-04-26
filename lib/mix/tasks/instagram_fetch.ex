@@ -5,7 +5,7 @@ end
 defmodule Mix.Tasks.InstagramFetch do
   def fetch(instagram_url) do
     %{:body => body, :status_code => status_code} = URI.decode(instagram_url) |> HTTPotion.get!
-    IO.inspect "GET #{instagram_url} --- #{status_code}"
+    # IO.inspect "GET #{instagram_url} --- #{status_code}"
     if http_code?(status_code) do
       %{:body => body}
     else
@@ -21,7 +21,7 @@ defmodule Mix.Tasks.InstagramFetch do
     raise TooManyRequestError
   end
 
-  defp http_code?(_)do
-    false
+  defp http_code?(_) do
+    true
   end
 end

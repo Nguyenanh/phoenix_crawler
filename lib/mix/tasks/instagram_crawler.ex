@@ -5,10 +5,9 @@ defmodule Mix.Tasks.InstagramCrawler do
 
   def run(_) do
     HTTPotion.start
-    "https://www.instagram.com/p/BcZW_hNjCQV/" |> get_data
-
-      # |> Enum.map(&(Task.async(fn -> get_data(&1) end)))
-      # |> Enum.map(&Task.await/1)
+    urls()
+      |> Enum.map(&(Task.async(fn -> get_data(&1) end)))
+      |> Enum.map(&Task.await/1)
   end
 
   defp get_data(url) do
