@@ -15,4 +15,16 @@ defmodule Mix.Tasks.InstagramParse do
       |> Map.fetch!("graphql")
       |> Map.fetch!("shortcode_media")
   end
+
+  def to_post(json) do
+    %{
+      :user => %{
+        :instagram_id => json["owner"]["id"],
+        :username =>  json["owner"]["username"],
+        :full_name => json["owner"]["full_name"],
+        :profile_picture => json["owner"]["profile_picture"]
+      },
+      :link => "https://www.instagram.com/p/#{json["shortcode"]}/"
+    }
+  end
 end

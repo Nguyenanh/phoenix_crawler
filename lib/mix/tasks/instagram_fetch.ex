@@ -1,14 +1,11 @@
-require IEx
-
-defmodule TooManyError do
+defmodule TooManyRequestError do
   defexception message: "Retry"
 end
 
 defmodule Mix.Tasks.InstagramFetch do
-
   def fetch(instagram_url) do
-    IO.puts "GET " <> instagram_url
-    %{:body => body, :status_code => status_code} = HTTPotion.get! instagram_url
+    %{:body => body, :status_code => status_code} = URI.decode(instagram_url) |> HTTPotion.get!
+    IO.inspect "GET #{instagram_url} --- #{status_code}"
     if http_code?(status_code) do
       %{:body => body}
     else
@@ -20,19 +17,11 @@ defmodule Mix.Tasks.InstagramFetch do
     true
   end
 
-  defp http_code?(status_code) when status_code == 404 do
-    false
-  end
-
-  defp http_code?(status_code) when status_code == 500 do
-    http_code?(400)
-  end
-
-  defp http_code?(status_code) when status_code == 301 do
-    http_code?(400)
-  end
-
   defp http_code?(status_code) when status_code == 429 do
-    raise TooManyError
+    raise TooManyRequestError
+  end
+
+  defp http_code?(_)do
+    false
   end
 end
