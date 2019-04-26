@@ -45,7 +45,11 @@ defmodule PhoenixCrawler.MixProject do
       {:plug_cowboy, "~> 2.0"},
       {:edeliver, "~> 1.4.3"},
       {:distillery, "~> 1.4"},
-      {:logger_file_backend, "~> 0.0.10"}
+      {:logger_file_backend, "~> 0.0.10"},
+      {:floki, "~>0.21.0"},
+      {:httpotion, "~> 3.1.0"},
+      {:poison, "~> 3.1"},
+      {:retry, "~> 0.11"}
     ]
   end
 
