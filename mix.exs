@@ -49,7 +49,8 @@ defmodule PhoenixCrawler.MixProject do
       {:floki, "~>0.21.0"},
       {:httpotion, "~> 3.1.0"},
       {:poison, "~> 3.1"},
-      {:retry, "~> 0.11"}
+      {:retry, "~> 0.11"},
+      {:hound, "~> 1.0"}
     ]
   end
 

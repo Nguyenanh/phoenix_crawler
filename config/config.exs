@@ -7,6 +7,8 @@
 # General application configuration
 use Mix.Config
 
+config :hound, driver: "phantomjs"
+
 config :phoenix_crawler,
   ecto_repos: [PhoenixCrawler.Repo]
 
